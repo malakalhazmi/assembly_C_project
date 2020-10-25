@@ -22,18 +22,18 @@
 
 [SECTION .data]			; Section containing initialised data
 
-Filename    db 'notNumberdFile.txt',0			
+Filename    db 'noLineNumbers.txt',0			
 WriteBase   db '#%d: %s',0
 WriteCode   db 'w',0
 OpenCode    db 'r',0			
 HelpMsg     db 'PLEASE write the name you desire for the new file you want to create! type it in the command-line as Arg(1)',10,0
-ErrMsg      db 'The input file (notNumberdFile.txt) is not exist or there was a problem while reading it!',10,0
+ErrMsg      db 'The input file (noLineNumbers.txt) is not exist or there was a problem while reading it!',10,0
 
 
 [SECTION .bss]			; Section containing uninitialized data
 
-LENLIMIT     EQU 80	    	  ; Define length limit of a single line of [(1)help text from memory/(3)notNumberdFile.txt]
-LineBuff     resb LENLIMIT	; Reserve space for [(1)text line of disk-based help/(2)text line of input file "notNumberdFile.txt"] 
+LENLIMIT     EQU 80	    	  ; Define length limit of a single line of [(1)help text from memory/(3)noLineNumbers.txt]
+LineBuff     resb LENLIMIT	; Reserve space for [(1)text line of disk-based help/(2)text line of input file "noLineNumbers.txt"] 
 BUFSIZE      EQU 30         ; Define max length of output file name arg
 FileNameArg  resb BUFSIZE   ; Reserve space for output file name arg 
 
@@ -91,7 +91,7 @@ addnul:
     mov byte [edi],0	  ; Tuck a null on the end of buff
 
 
-;;;;;; ((( 3 )))--> Now, we 'read' a line from the input file (notNumberdFile.txt) 
+;;;;;; ((( 3 )))--> Now, we 'read' a line from the input file (noLineNumbers.txt) 
 	;; and at the same time we 'write' that line along with its line# in the output file (its name is in: FileNameArg).
 readwritefile:
   ;;READ (input file)
